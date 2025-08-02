@@ -21,10 +21,17 @@ Preferred communication style: Simple, everyday language.
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js server
+- **Development Server**: `server/index.ts` with Vite integration for hot reload
+- **Production Server**: `server/index.prod.ts` with static file serving (no Vite dependencies)
 - **WebSocket**: ws library for real-time messaging capabilities
 - **Data Storage**: In-memory storage with automatic cleanup for ephemeral data
 - **Database**: Drizzle ORM configured for PostgreSQL with schema definitions
 - **Session Management**: Express sessions with PostgreSQL session store
+
+### Build Process
+- **Development**: Uses `server/index.ts` with Vite middleware for hot reload
+- **Production**: Uses `server/index.prod.ts` built with esbuild, completely separate from Vite
+- **Deployment**: Dual-file strategy prevents Vite import errors in production environments
 
 ### Security & Encryption
 - **End-to-End Encryption**: Web Crypto API with RSA-OAEP encryption for message and media

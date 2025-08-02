@@ -144,20 +144,46 @@ DATABASE_URL=your_postgresql_connection_string
 
 MIT License - see LICENSE file for details
 
+## Build Scripts
+
+- **Development**: `npm run dev` - Starts development server with hot reload
+- **Production Build**: `./build.sh` - Builds frontend and backend for production
+- **Deployment Build**: `./deploy.sh` - Complete deployment preparation with verification
+
 ## Troubleshooting
 
 ### Common Deployment Issues
 
 1. **"Cannot find package 'vite'" error**:
-   - Ensure the Dockerfile properly separates build and production stages
-   - Vite should only be available during build, not in production
+   - **SOLUTION**: Use `server/index.prod.ts` for production builds instead of `server/index.ts`
+   - The production server file has no Vite dependencies
+   - Ensure deployment uses `node dist/index.prod.js`
 
-2. **WebSocket connection issues**:
+2. **Recurring Vite errors in production**:
+   - **SOLUTION**: Always use the deployment script `./deploy.sh`
+   - This script ensures only the production server file is built
+   - Removes any development artifacts that might contain Vite imports
+
+3. **WebSocket connection issues**:
    - Check that the WebSocket endpoint `/ws` is properly configured
    - Ensure your hosting platform supports WebSocket connections
 
-3. **Build failures**:
-   - Verify all dependencies are properly listed in package.json
-   - Check that the build process completes without errors locally
+4. **Build failures**:
+   - Run `./deploy.sh` for a complete verified build
+   - Check that all dependencies are properly installed
+   - Verify the build process completes without errors locally
+
+### Deployment Verification
+
+Before deploying, always run:
+```bash
+./deploy.sh
+```
+
+This script will:
+- Build both frontend and backend
+- Remove any development artifacts
+- Verify no Vite imports exist in production
+- Confirm all required files are present
 
 For more help, check the project's GitHub issues or create a new one.

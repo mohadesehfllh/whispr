@@ -14,9 +14,9 @@ RUN npm ci --frozen-lockfile
 COPY . .
 
 # Build the frontend first
-RUN npm run build
+RUN vite build
 
-# Build the backend separately (without vite dependencies)
+# Build the backend ONLY with production file (avoiding any vite imports)
 RUN npx esbuild server/index.prod.ts \
   --bundle \
   --platform=node \
@@ -40,6 +40,9 @@ RUN npx esbuild server/index.prod.ts \
   --external:zod \
   --external:zod-validation-error \
   --external:nanoid
+
+# Remove the development server file to prevent accidental usage
+RUN rm -f dist/index.js
 
 # Production stage
 FROM node:20-alpine AS production
