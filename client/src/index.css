@@ -113,6 +113,15 @@
     animation: gradient-shift 2s ease infinite;
   }
   
+  .gradient-text-loading {
+    background: linear-gradient(90deg, #9ca3af 0%, #f9fafb 25%, #ffffff 50%, #f9fafb 75%, #9ca3af 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: loading-shimmer 2s ease-in-out infinite;
+  }
+  
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -162,6 +171,15 @@
     }
     100% {
       background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes loading-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
     }
   }
 }

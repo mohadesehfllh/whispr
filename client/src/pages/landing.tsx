@@ -37,7 +37,7 @@ export default function Landing() {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center shadow-lg">
               <MessageCircle className="text-primary-foreground w-5 h-5" />
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold gradient-text-loading">
               Whispr
             </h1>
           </div>
@@ -58,7 +58,7 @@ export default function Landing() {
             </div>
             
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight gradient-text-rainbow leading-tight">
+              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight gradient-text-loading leading-tight">
                 Whispr
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
