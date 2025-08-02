@@ -18,21 +18,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const wss = new WebSocketServer({ 
     server: httpServer, 
     path: '/ws',
-    perMessageDeflate: false,
-    verifyClient: (info: any) => {
+    verifyClient: (info) => {
       // Allow all connections for now - can add authentication later
-      console.log('WebSocket connection attempt from:', info.origin);
-      console.log('Request URL:', info.req.url);
       return true;
     }
   });
   
   wss.on('error', (error) => {
     console.error('WebSocket server error:', error);
-  });
-  
-  wss.on('headers', (headers, request) => {
-    console.log('WebSocket headers being sent:', headers);
   });
   
   console.log('WebSocket server initialized on path /ws');

@@ -36,19 +36,9 @@ export class WebSocketService {
   
   connect(): Promise<void> {
     return new Promise((resolve, reject) => {
-      // In development, Vite proxy might interfere, so try direct connection first
-      const isDev = import.meta.env.DEV;
-      let wsUrl: string;
+      const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
+      const wsUrl = `${protocol}//${window.location.host}/ws`;
       
-      if (isDev) {
-        // Try direct connection to backend server
-        wsUrl = 'ws://localhost:5000/ws';
-      } else {
-        const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-        wsUrl = `${protocol}//${window.location.host}/ws`;
-      }
-      
-      console.log('Connecting to WebSocket:', wsUrl);
       this.ws = new WebSocket(wsUrl);
       
       this.ws.onopen = () => {
