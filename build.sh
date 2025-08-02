@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "🏗️ Building frontend..."
-vite build
+npx vite build
 
 echo "🏗️ Building backend for production (without vite)..."
 npx esbuild server/index.prod.ts \

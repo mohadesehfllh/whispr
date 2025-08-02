@@ -79,7 +79,7 @@ A privacy-focused, end-to-end encrypted peer-to-peer chat application built for 
 1. **Create a new Web Service** with these settings:
    - **Build Command**: 
      ```bash
-     npm ci && npm run build && npx esbuild server/index.prod.ts --bundle --platform=node --target=node20 --format=esm --outdir=dist --external:express --external:ws --external:drizzle-orm --external:@neondatabase/serverless --external:memorystore --external:connect-pg-simple --external:passport --external:passport-local --external:express-session --external:crypto --external:path --external:fs --external:http --external:url --external:zod --external:zod-validation-error --external:nanoid
+     npm ci && npx vite build && npx esbuild server/index.prod.ts --bundle --platform=node --target=node20 --format=esm --outdir=dist --external:express --external:ws --external:drizzle-orm --external:@neondatabase/serverless --external:memorystore --external:connect-pg-simple --external:passport --external:passport-local --external:express-session --external:crypto --external:path --external:fs --external:http --external:url --external:zod --external:zod-validation-error --external:nanoid && rm -f dist/index.js
      ```
    - **Start Command**: `node dist/index.prod.js`
    - **Environment**: `NODE_ENV=production`

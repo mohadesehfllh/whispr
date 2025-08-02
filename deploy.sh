@@ -14,7 +14,7 @@ npm ci
 
 # Build frontend
 echo "🏗️ Building React frontend..."
-vite build
+npx vite build
 
 # Build backend (production only, no Vite)
 echo "🏗️ Building Node.js backend for production..."
