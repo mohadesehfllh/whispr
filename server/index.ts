@@ -1,6 +1,36 @@
 import express, { type Request, Response, NextFunction } from "express";
 import { registerRoutes } from "./routes";
-import { setupVite, serveStatic, log } from "./vite";
+import path from "path";
+
+// Production logging function
+const log = (message: string, source = "express") => {
+  const formattedTime = new Date().toLocaleTimeString("en-US", {
+    hour: "numeric",
+    minute: "2-digit", 
+    second: "2-digit",
+    hour12: true,
+  });
+  console.log(`${formattedTime} [${source}] ${message}`);
+};
+
+// Production static file serving
+const serveStatic = (app: express.Express) => {
+  const distPath = path.resolve(process.cwd(), "dist/public");
+  app.use(express.static(distPath));
+  
+  // Catch-all handler for SPA routing
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(distPath, "index.html"));
+  });
+};
+
+// Only import vite functions in development
+let setupVite: any = null;
+
+if (process.env.NODE_ENV === "development") {
+  const viteModule = await import("./vite.js");
+  setupVite = viteModule.setupVite;
+}
 
 const app = express();
 app.use(express.json());
@@ -50,7 +80,7 @@ app.use((req, res, next) => {
   // importantly only setup vite in development and after
   // setting up all the other routes so the catch-all route
   // doesn't interfere with the other routes
-  if (app.get("env") === "development") {
+  if (process.env.NODE_ENV === "development" && setupVite) {
     await setupVite(app, server);
   } else {
     serveStatic(app);

@@ -35,6 +35,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   
   // API Routes
   
+  // Health check endpoint for Docker/container health checks
+  app.get('/api/health', (req, res) => {
+    res.status(200).json({ status: 'healthy', timestamp: new Date().toISOString() });
+  });
+  
   // Create a new chat room
   app.post('/api/chat/create', async (req, res) => {
     try {

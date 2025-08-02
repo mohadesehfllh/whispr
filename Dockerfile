@@ -1,31 +1,60 @@
+# Use Node.js LTS version
+FROM node:20-alpine AS builder
 
-# Use Node.js 20 Alpine base image
-FROM node:20-alpine
+# Set working directory
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package.json package-lock.json ./
+
+# Install all dependencies (including dev dependencies for build)
+RUN npm ci --frozen-lockfile
+
+# Copy source code
+COPY . .
+
+# Build the frontend
+RUN npm run build
+
+# Production stage
+FROM node:20-alpine AS production
 
 # Set working directory
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
-# Install ALL dependencies (including dev dependencies needed for build)
-RUN npm ci
+# Install only production dependencies and clean cache
+RUN npm ci --frozen-lockfile --production && \
+    npm cache clean --force && \
+    rm -rf /tmp/*
 
-# Copy source code
-COPY . .
+# Copy built application from builder stage
+COPY --from=builder /app/dist ./dist
 
-# Build the application (this needs dev dependencies)
-RUN npm run build
+# Copy shared schema for production
+COPY shared ./shared
 
-# Remove dev dependencies after build to reduce image size
-RUN npm prune --production
+# Create non-root user for security
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S appuser -u 1001 -G nodejs
 
-# Expose port 5000
+# Change ownership to non-root user
+RUN chown -R appuser:nodejs /app
+USER appuser
+
+# Expose port
 EXPOSE 5000
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=5000
+ENV HOST=0.0.0.0
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
+  CMD wget --no-verbose --tries=1 --spider http://localhost:5000/api/health || exit 1
 
 # Start the application
-CMD ["npm", "run", "start"]
+CMD ["node", "dist/index.js"]

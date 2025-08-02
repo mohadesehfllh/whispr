@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: whispr-chat
+    env: node
+    region: oregon
+    plan: starter
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    healthCheckPath: /api/health
