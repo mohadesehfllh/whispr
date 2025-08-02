@@ -37,7 +37,7 @@ export default function Landing() {
             <div className="w-10 h-10 bg-gradient-to-br from-primary to-primary/70 rounded-xl flex items-center justify-center shadow-lg">
               <MessageCircle className="text-primary-foreground w-5 h-5" />
             </div>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
               Whispr
             </h1>
           </div>
@@ -58,7 +58,7 @@ export default function Landing() {
             </div>
             
             <div className="space-y-4">
-              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight bg-gradient-to-r from-slate-200 via-white to-slate-300 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-5xl sm:text-6xl font-bold tracking-tight gradient-text-rainbow leading-tight">
                 Whispr
               </h1>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
@@ -70,7 +70,7 @@ export default function Landing() {
 
           {/* How It Works */}
           <div className="text-center space-y-4 bg-card/30 rounded-2xl p-8 border border-border/30">
-            <h3 className="text-lg font-semibold text-foreground">How It Works</h3>
+            <h3 className="text-lg font-semibold bg-gradient-to-r from-emerald-400 to-teal-500 bg-clip-text text-transparent">How It Works</h3>
             <p className="text-muted-foreground max-w-3xl mx-auto">
               Users simply visit the site, click "Create Chat Link", and share it with someone they want to talk to. 
               Both users choose a nickname, and a private chat session begins. All communication is encrypted, anonymous, 

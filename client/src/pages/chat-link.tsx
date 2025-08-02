@@ -90,7 +90,7 @@ export default function ChatLink({ roomId }: ChatLinkProps) {
           >
             <ArrowLeft className="w-4 h-4" />
           </Button>
-          <h1 className="text-lg font-semibold">Secure Chat Link</h1>
+          <h1 className="text-lg font-semibold gradient-text-primary">Secure Chat Link</h1>
           <div className="w-6"></div>
         </div>
       </header>
@@ -101,7 +101,7 @@ export default function ChatLink({ roomId }: ChatLinkProps) {
             <div className="w-12 h-12 bg-success/10 rounded-full flex items-center justify-center mx-auto">
               <Check className="text-success w-6 h-6" />
             </div>
-            <h2 className="text-2xl font-bold">Chat Link Created</h2>
+            <h2 className="text-2xl font-bold gradient-text-success">Chat Link Created</h2>
             <p className="text-muted-foreground text-sm">
               Share this secure link with the person you want to chat with. 
               The link expires after the first conversation ends.
