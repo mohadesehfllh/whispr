@@ -1,0 +1,108 @@
+Build an end-to-end encrypted peer-to-peer chat application for the Pi Network, using Pi SDK, with a secure Python backend and a modern React.js frontend using shadcn/ui components.
+
+🧩 FUNCTIONALITY SPEC:
+No user sign-up/login.
+
+A user visits the web app and clicks "Create Chat Link".
+
+A secure chat link is generated and can be shared with another person.
+
+Once both users open the link, they are asked for a nickname, which will be shown to the other user in chat.
+
+The chat supports:
+
+Text chat
+
+Disappearing photo sharing (image is deleted after viewing, 20-second timer, no recovery)
+
+End-to-end encryption for all chat and image data
+
+Audio calling (One user calls, other accepts/rejects; if accepted, real-time audio session begins)
+
+Screenshot prevention on image views
+
+Anti-spyware browser checks before starting audio calls or viewing images
+
+Temporary relays used for message/image delivery; nothing is stored on any server permanently (auto-timeout after brief duration)
+
+No chat logs, metadata, or media are stored. Everything is encrypted and ephemeral.
+
+⚙️ TECH STACK:
+Frontend: React.js + shadcn/ui + WebRTC for audio
+
+Backend: Python (FastAPI or Flask preferred)
+
+Encryption: End-to-End Encryption using libsodium or similar (message/image/audio)
+
+Networking: Relay-based peer communication (e.g., WebRTC STUN/TURN + websockets)
+
+Security:
+
+Screenshot prevention on sensitive images
+
+Encrypted ephemeral media
+
+Anti-spyware checks (e.g., script to detect dev tools, recording software, etc.)
+
+Pi Network Integration: Use Pi SDK to wrap the app inside the Pi ecosystem (e.g., for user validation or monetization if needed)
+
+🧠 IMPLEMENTATION DETAILS:
+Generate secure links using UUIDs and ephemeral token exchange
+
+Use IndexedDB or memory only for temp storage on frontend
+
+Relay servers expire messages and media after timeout (e.g., 60 seconds)
+
+Media preview triggers destruction and unavailability after single view
+
+Audio Call: WebRTC peer-to-peer connection, with secure signaling (socket or relay)
+
+Spyware Detection Script: Alert if:
+
+Developer tools are open
+
+Suspicious screen recorders/browser extensions are detected
+
+Tab loses focus during sensitive image viewing
+
+UI/UX: Clean, minimal, modern layout using shadcn components (cards, inputs, modals, alerts, timers, chat bubbles)
+
+🔐 NON-NEGOTIABLE SECURITY FEATURES:
+No central logging or tracking
+
+No user metadata retention
+
+All messages/media encrypted in transit and at rest (temp memory)
+
+No way to retrieve content once deleted or expired
+
+Full compliance with privacy-by-design
+
+🌹 ROSES FRAMEWORK PROMPT (UI/UX Feedback):
+R (Roles): The user is a privacy-conscious individual who wants to have a secure, ephemeral chat without creating an account.
+O (Objectives): Create a lightweight, intuitive, encrypted messaging app with disappearing messages/media and optional audio chat.
+S (Scenarios):
+
+A user lands on the site and clicks "Create Chat Link."
+
+Shares link with a friend.
+
+Both enter nicknames and start chatting.
+
+One user sends a photo that disappears after view.
+
+One user initiates an audio call.
+
+User views image, screen record alert pops if tools detected.
+E (Emotions): Trust, confidence, simplicity, safety.
+S (Success Criteria):
+
+0 data stored
+
+Fully encrypted experience
+
+No sign-in friction
+
+Smooth UX (chat, image, audio)
+
+Detect and block malicious behavior (spyware/screenshot)
