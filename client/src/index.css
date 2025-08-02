@@ -119,7 +119,7 @@
     -webkit-background-clip: text;
     color: transparent;
     background-size: 200% 100%;
-    animation: loading-shimmer 2s ease-in-out infinite;
+    animation: loading-shimmer 4s ease-in-out infinite;
   }
   
   @keyframes fadeIn {
