@@ -64,16 +64,30 @@ A privacy-focused, end-to-end encrypted peer-to-peer chat application built for 
 
 ### Deploy to Render.com
 
-1. **Connect your GitHub repository** to Render.com
+#### Option 1: Using render.yaml (Recommended)
 
-2. **Create a new Web Service** with these settings:
-   - **Build Command**: `npm run build`
-   - **Start Command**: `npm start`
+1. **Connect your GitHub repository** to Render.com
+2. **Use the provided render.yaml** file for automatic configuration
+3. The build process will:
+   - Install dependencies
+   - Build the React frontend  
+   - Build the Node.js backend (without Vite)
+   - Start the production server
+
+#### Option 2: Manual Configuration
+
+1. **Create a new Web Service** with these settings:
+   - **Build Command**: 
+     ```bash
+     npm ci && npm run build && npx esbuild server/index.prod.ts --bundle --platform=node --target=node20 --format=esm --outdir=dist --external:express --external:ws --external:drizzle-orm --external:@neondatabase/serverless --external:memorystore --external:connect-pg-simple --external:passport --external:passport-local --external:express-session --external:crypto --external:path --external:fs --external:http --external:url --external:zod --external:zod-validation-error --external:nanoid
+     ```
+   - **Start Command**: `node dist/index.prod.js`
    - **Environment**: `NODE_ENV=production`
 
-3. **Or use Docker deployment**:
-   - Set **Runtime** to "Docker"
-   - The Dockerfile will handle the entire build process
+#### Option 3: Docker Deployment
+
+1. Set **Runtime** to "Docker"
+2. The Dockerfile will handle the entire build process automatically
 
 ### Environment Variables
 

@@ -13,8 +13,33 @@ RUN npm ci --frozen-lockfile
 # Copy source code
 COPY . .
 
-# Build the frontend
+# Build the frontend first
 RUN npm run build
+
+# Build the backend separately (without vite dependencies)
+RUN npx esbuild server/index.prod.ts \
+  --bundle \
+  --platform=node \
+  --target=node20 \
+  --format=esm \
+  --outdir=dist \
+  --external:express \
+  --external:ws \
+  --external:drizzle-orm \
+  --external:@neondatabase/serverless \
+  --external:memorystore \
+  --external:connect-pg-simple \
+  --external:passport \
+  --external:passport-local \
+  --external:express-session \
+  --external:crypto \
+  --external:path \
+  --external:fs \
+  --external:http \
+  --external:url \
+  --external:zod \
+  --external:zod-validation-error \
+  --external:nanoid
 
 # Production stage
 FROM node:20-alpine AS production
@@ -56,5 +81,5 @@ ENV HOST=0.0.0.0
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:5000/api/health || exit 1
 
-# Start the application
-CMD ["node", "dist/index.js"]
+# Start the application  
+CMD ["node", "dist/index.prod.js"]

@@ -4,8 +4,11 @@ services:
     env: node
     region: oregon
     plan: starter
-    buildCommand: npm run build
-    startCommand: npm start
+    buildCommand: |
+      npm ci &&
+      npm run build &&
+      npx esbuild server/index.prod.ts --bundle --platform=node --target=node20 --format=esm --outdir=dist --external:express --external:ws --external:drizzle-orm --external:@neondatabase/serverless --external:memorystore --external:connect-pg-simple --external:passport --external:passport-local --external:express-session --external:crypto --external:path --external:fs --external:http --external:url --external:zod --external:zod-validation-error --external:nanoid
+    startCommand: node dist/index.prod.js
     envVars:
       - key: NODE_ENV
         value: production
