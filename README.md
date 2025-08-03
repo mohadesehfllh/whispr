@@ -1,4 +1,4 @@
-# PiSecure Chat - Encrypted P2P Chat Application
+# Whispr - Encrypted P2P Chat Application
 
 A privacy-focused, end-to-end encrypted peer-to-peer chat application built for secure communication with ephemeral messaging and advanced security features.
 
